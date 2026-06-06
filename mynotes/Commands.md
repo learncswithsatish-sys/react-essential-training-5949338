@@ -2,3 +2,10 @@
 2. npm install --save-dev @types/react@rc @types/react-dom@rc
 3. npm install --save-dev @types/react@18.0.0 @types/react-dom@18.0.0
 4. npm install --save-dev @types/react@18.0.0-rc @types/react-dom@18.0.0-rc
+
+Run Commnands for VITE React App:
+
+1. npm install
+2. npm run dev
+3. npm run build
+4. npm run preview
