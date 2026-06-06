@@ -1,0 +1,58 @@
+const hotels = [
+  {
+    id: 'hotel-1',
+    name: 'Skyline Retreat',
+    city: 'Seattle',
+    rating: 4.7,
+    price: 220,
+    rooms: 8,
+    description: 'Modern rooms with city views and fast Wi-Fi.',
+  },
+  {
+    id: 'hotel-2',
+    name: 'Cedar Lodge',
+    city: 'Portland',
+    rating: 4.3,
+    price: 180,
+    rooms: 12,
+    description: 'Quiet forest-inspired styling near downtown.',
+  },
+  {
+    id: 'hotel-3',
+    name: 'Harbor Hotel',
+    city: 'San Francisco',
+    rating: 4.9,
+    price: 260,
+    rooms: 5,
+    description: 'Comfortable boutique hotel close to the waterfront.',
+  },
+  {
+    id: 'hotel-4',
+    name: 'Lakeview Suites',
+    city: 'Austin',
+    rating: 4.5,
+    price: 200,
+    rooms: 10,
+    description: 'Stylish suites with a rooftop lounge and pool.',
+  },
+  {
+    id: 'hotel-5',
+    name: 'Desert Harbor',
+    city: 'Phoenix',
+    rating: 4.1,
+    price: 150,
+    rooms: 18,
+    description: 'Bright, affordable rooms and warm hospitality.',
+  },
+  {
+    id: 'hotel-6',
+    name: 'Mountain Lodge',
+    city: 'Denver',
+    rating: 4.8,
+    price: 240,
+    rooms: 7,
+    description: 'Cozy lodge atmosphere with dramatic mountain views.',
+  },
+];
+
+export default hotels;
