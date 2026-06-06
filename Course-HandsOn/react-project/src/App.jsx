@@ -9,19 +9,33 @@ function App() {
   return (<div>
     <TimeOfDayGreeting/>
     <WelcomeMessage launguage={launguage} moon={moon} />
+    <WelcomeMessage launguage="Java" moon="mars" /> {/* passing different props to demonstrate reusability of the WelcomeMessage component */}
+    <PropsDemo developerInfo={{ name: "Satish", level: "Beginner", knowlang: "JavaScript" }} />
   </div>);
 }
 
 function WelcomeMessage({ launguage, moon }) {
   console.log('Rendering WelcomeMessage with launguage:', launguage, 'and moon:', moon);
   return (
-    
     <div>
-  <h2>Hello, {launguage} developers! {moon}</h2>
+  <h2> <marquee scrollamount="20" style={{ fontSize: '24px' }}>Hello, {launguage} developers! on the planet {moon}</marquee></h2>
   <p>Welcome to the React course. Let's build something amazing together!</p>
  </div>);
 
 }
+
+function PropsDemo({ developerInfo}) {
+  const { name, level, knowlang } = developerInfo;
+  console.log('Received props in PropsDemo:', { name, level, knowlang });
+  return (
+    <div className="props-demo">
+      <p>Hi <b>{name}</b>!</p>
+      <p>You are at level: <strong>{level}</strong></p>
+      <p>You know: <em>{knowlang}</em></p>
+    </div>
+  );
+}
+
 function TimeOfDayGreeting() {
   
   const hours = new Date().getHours();
@@ -41,5 +55,6 @@ function TimeOfDayGreeting() {
 
 
 export default App;
-export { TimeOfDayGreeting };
-export { WelcomeMessage };
+// export { TimeOfDayGreeting };
+// export { WelcomeMessage };
+export { TimeOfDayGreeting, WelcomeMessage, PropsDemo };
