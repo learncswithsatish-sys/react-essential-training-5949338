@@ -1,19 +1,38 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useReducer, useEffect } from "react";
 
 let launguage = "JavaScript";
 let moon = "🌕";
 // This is the main App component that renders the TimeOfDayGreeting component with props.
 function App() {
+  // Using useState to manage the current language and training status. The output will show the initial language and the function to update it.
+  const [currentLaunguage, trainingStatus] = useState(launguage);
+  //useReducer is used to manage the state of the moon phase. The output will show the current moon phase and the function to update it.
+  const [currentMoon, updateMoon] = useReducer(
+    (state, newPhase) => newPhase,
+    moon,
+  );
+  console.log("useState output for language:", currentLaunguage);
+  console.log("useReducer output for moon:", currentMoon);
+
+  // Useeffect is used to perform side effects in the component. In this case, it logs a message to the console whenever the current language changes.
+  React.useEffect(() => {
+    console.log("Current language has changed to:", currentLaunguage);
+  }, [currentLaunguage]);
+  useEffect(() => {
+    console.log("Current moon phase has changed to:", currentMoon);
+  }, [currentMoon]);
+
   return (
     <div>
       <TimeOfDayGreeting />
+      <button onClick={() => updateMoon("🌑")}>Change Moon Colour</button>
+
       <WelcomeMessage
         preRequisites={["HTML", "CSS"]}
-        launguage={launguage}
-        moon={moon}
+        launguage={currentLaunguage}
+        moon={currentMoon}
       />
-      {/* passing different props to demonstrate reusability of the WelcomeMessage component */}
 
       <CodingSkillsInfo skillsInfo={codingSkills} />
     </div>
