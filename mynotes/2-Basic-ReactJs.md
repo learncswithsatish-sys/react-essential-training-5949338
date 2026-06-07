@@ -57,6 +57,44 @@ Props are read-only inputs passed to components.
 | Destructuring  | `function HotelCard({ name, description }) {}` |
 | Validation     | Use PropTypes or TypeScript for safety         |
 
+## Fetching Data
+
+- Fetch data inside client components using `useEffect`.
+- Keep loading and error state local to the component.
+- Use custom hooks when the same fetch logic is reused.
+
+| Pattern               | When to use                         | Example                                                                    |
+| --------------------- | ----------------------------------- | -------------------------------------------------------------------------- |
+| `useEffect` + `fetch` | Load data after component mounts    | `useEffect(() => { fetch(url).then(r=>r.json()).then(setData); }, [url]);` |
+| Axios                 | When you need extra request control | `axios.get(url).then(res => setData(res.data))`                            |
+| Custom hook           | Reuse fetch logic across components | `const data = useData(url)`                                                |
+
+Example:
+
+```jsx
+import { useState, useEffect } from "react";
+
+function DataList({ url }) {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    setLoading(true);
+    fetch(url)
+      .then((res) => res.json())
+      .then((json) => setData(json))
+      .catch((err) => setError(err))
+      .finally(() => setLoading(false));
+  }, [url]);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+  return <pre>{JSON.stringify(data, null, 2)}</pre>;
+}
+```
+
 ## Main Entry Point
 
 ```jsx

@@ -1,0 +1,50 @@
+.app-container {
+  font-family: system-ui, sans-serif;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+header {
+  margin-bottom: 1.5rem;
+}
+
+.products {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-bottom: 1.5rem;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1rem;
+  background: #fff;
+}
+
+.product-card h2 {
+  margin: 0 0 0.5rem;
+}
+
+.product-card button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+}
+
+.product-card button:hover {
+  background: #1d4ed8;
+}
+
+.cart {
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+}
+
+.cart h2 {
+  margin-bottom: 0.75rem;
+}
